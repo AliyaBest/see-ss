@@ -1,4 +1,5 @@
 import React from "react";
+// import Colors from "./Colors"
 
 export default class Preview extends React.Component {
   constructor(){
@@ -11,6 +12,7 @@ export default class Preview extends React.Component {
   }
 
   handleChange(event){
+    console.log("event=>", event)
     this.setState({
       preview: event.target.value
     })
@@ -25,11 +27,13 @@ export default class Preview extends React.Component {
   }
 
   render(){
+
+
     return (
       <div>
 
-        {this.state.preview.length ? <h1>{this.state.preview}</h1> :
-          <h1>Lorem Ipsum</h1>
+        {this.state.preview.length ? <div id='preview-text'>{this.state.preview}</div> :
+          <div id='preview-text'>Lorem Ipsum</div>
 
           }
 
