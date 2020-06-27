@@ -17,12 +17,14 @@ export class Colors extends React.Component {
   chooseColor(evt) {
     this.props.pickColor(evt)
     document.getElementById('preview-text').style.color = evt.color;
-    // console.log("evt", evt.color)
+    const codePreview = document.getElementById('codepreview')
+    codePreview.innerHTML = `{ color: ${evt.color}; }`
   }
 
   render() {
     const colors = AVAILABLE_COLORS;
-    // console.log(this.props)
+    let codeSnippet= "{ color: "
+
     return (
       <div>
         <p>COLOR OPTIONS</p>
@@ -30,6 +32,7 @@ export class Colors extends React.Component {
         <div className="colorPalette">
           {colors.map((color, ind) => {
             return (
+
               <button onClick={()=>this.chooseColor({color})} className={color} key={ind} type="button" value={this.props.selectedColor} >
                 {color}
               </button>
@@ -37,10 +40,11 @@ export class Colors extends React.Component {
           })}
         </div>
 
-        {/* <ColorSelector
-                         selectedColor={this.props.selectedColor}
-                         onChange={this.changeColor}
-          /> */}
+        <div id="codepreview" style={{backgroundColor: "red", height: 50, width: 200, margin: 20, padding: 20}}>
+        {codeSnippet} black;{` }`}
+
+
+        </div>
 
       </div>
     );

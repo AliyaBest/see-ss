@@ -32,8 +32,10 @@ export default class Preview extends React.Component {
     return (
       <div>
 
-        {this.state.preview.length ? <div id='preview-text'>{this.state.preview}</div> :
-          <div id='preview-text'>Lorem Ipsum</div>
+        {this.state.preview.length ? <div id='preview-text' style={{height: 400, width: 400, borderStyle: 'solid', fontSize: 72,borderColor: 'black'
+          }}>{this.state.preview} </div> :
+          <div id='preview-text' style={{height: 400, width: 400, borderStyle: 'solid', fontSize: 48, borderColor: 'black'
+          }}>Lorem Ipsum</div>
 
           }
 

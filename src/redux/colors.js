@@ -17,25 +17,26 @@ export const AVAILABLE_COLORS = [
 const PICK_COLOR = "PICK_COLOR"
 
 
-export const pickColor = (color)=>({
+export const pickColor = (selectedColor)=>({
   type: PICK_COLOR,
-  color
+  selectedColor
 })
 
 const initialState = {
   colors: AVAILABLE_COLORS,
-  selectedColor: "black"
+  selectedColor: ''
 }
 
 const colorsReducer = (state = initialState, action)=>{
   switch (action.type){
     case PICK_COLOR:
-    if(!action.color){
-      return {...state, selectedColor: "black"}
+    // if(!action.color){
+    //   return {...state, selectedColor: "black"}
 
-    } else {
-      return {...state, selectedColor: action.color}
-    }
+    // } else {
+      console.log("action=>", action)
+      return {...state, selectedColor: action.selectedColor}
+    //}
 
     default:
       return state
