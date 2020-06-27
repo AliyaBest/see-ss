@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+.colorPalette {
+  display: flex;
+  flex-direction: row;
+}
+
+.red {
+  background-color: red;
+  height: 50px;
+  width: 50px;
+}
+.orange {
+  background-color: orange;
+  height: 50px;
+  width: 50px;
+}
+.yellow {
+  background-color: yellow;
+  height: 50px;
+  width: 50px;
+}
+.green {
+  background-color: green;
+  height: 50px;
+  width: 50px;
+}
+.blue {
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+}
+.indigo {
+  background-color: indigo;
+  height: 50px;
+  width: 50px;
+}
+.violet {
+  background-color: violet;
+  height: 50px;
+  width: 50px;
+}
+.black {
+  background-color: black;
+  height: 50px;
+  width: 50px;
+}
+.white {
+  background-color: white;
+  height: 50px;
+  width: 50px;
+}
+.brown {
+  background-color: brown;
+  height: 50px;
+  width: 50px;
+}

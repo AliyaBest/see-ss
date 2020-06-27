@@ -1,27 +1,34 @@
-import React from 'react'
+import React from "react";
 import { connect } from "react-redux";
-import { AVAILABLE_COLORS } from '../redux/colors'
-
-
+import { AVAILABLE_COLORS } from "../redux/colors";
+import "./App.css";
 
 export default class Colors extends React.Component {
-
-  render(){
-    const colors = AVAILABLE_COLORS
+  render() {
+    const colors = AVAILABLE_COLORS;
     return (
       <div>
-    <h1>ALIYA yes, me</h1>
-    {colors.map(color =>{
-      return <li>{color}</li>
-    })}
+        <p>COLOR OPTIONS</p>
 
-    </div>
-    )}
+        <div className="colorPalette">
+          {colors.map((color, ind) => {
+            return (
+              <div className={color} key={ind}>
+                {color}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapState = state => ({
   colors: state.colors
-})
+});
 
-export const connectedColors = connect(mapState, null)(Colors)
-
+export const connectedColors = connect(
+  mapState,
+  null
+)(Colors);
