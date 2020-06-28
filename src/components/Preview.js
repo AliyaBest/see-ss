@@ -1,5 +1,4 @@
 import React from "react";
-// import Colors from "./Colors"
 
 export default class Preview extends React.Component {
   constructor(){
@@ -12,7 +11,6 @@ export default class Preview extends React.Component {
   }
 
   handleChange(event){
-    console.log("event=>", event)
     this.setState({
       preview: event.target.value
     })
@@ -20,7 +18,6 @@ export default class Preview extends React.Component {
 
   handleSubmit(event){
     event.preventDefault()
-    // const previewText = event.target.preview.value
     this.setState({
       preview: ""
     })
@@ -31,18 +28,17 @@ export default class Preview extends React.Component {
 
     return (
       <div>
-
-        {this.state.preview.length ? <div id='preview-text' style={{height: 400, width: 400, borderStyle: 'solid', fontSize: 72,borderColor: 'black'
+        <h6>PREVIEW</h6>
+        {this.state.preview.length ? <div id='preview-text' style={{height: 300, width: 400, borderStyle: 'solid', backgroundColor: 'white', fontSize: 48, padding: 20, borderColor: 'black'
           }}>{this.state.preview} </div> :
-          <div id='preview-text' style={{height: 400, width: 400, borderStyle: 'solid', fontSize: 48, borderColor: 'black'
+          <div id='preview-text' style={{height: 300, width: 400, borderStyle: 'solid', backgroundColor: 'white', padding: 20, fontSize: 48, borderColor: 'black'
           }}>Lorem Ipsum</div>
 
           }
 
 
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="preview">Preview</label>
-        <input type="text" name="preview" value={this.state.preview} onChange={this.handleChange}/>
+        <input type="text" name="preview" placeholder="Your text here." value={this.state.preview} onChange={this.handleChange}/>
         <button type="submit">SUBMIT</button>
       </form>
       </div>

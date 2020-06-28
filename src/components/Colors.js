@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { AVAILABLE_COLORS, pickColor } from "../redux/colors";
 import "./App.css";
 
-
 export class Colors extends React.Component {
   constructor(props){
     super(props)
@@ -21,13 +20,15 @@ export class Colors extends React.Component {
     codePreview.innerHTML = `{ color: ${evt.color}; }`
   }
 
+
+
   render() {
     const colors = AVAILABLE_COLORS;
     let codeSnippet= "{ color: "
 
     return (
       <div>
-        <p>COLOR OPTIONS</p>
+        <h6>COLOR OPTIONS</h6>
 
         <div className="colorPalette">
           {colors.map((color, ind) => {
@@ -39,8 +40,8 @@ export class Colors extends React.Component {
             );
           })}
         </div>
-
-        <div id="codepreview" style={{backgroundColor: "red", height: 50, width: 200, margin: 20, padding: 20}}>
+          <h6>CODE</h6>
+        <div id="codepreview" >
         {codeSnippet} black;{` }`}
 
 

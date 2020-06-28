@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-    <h1># see.ss</h1>
+    <h1><span>#</span> see.ss</h1>
     <div className="container">
     <Preview />
     <Colors />
