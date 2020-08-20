@@ -1,26 +1,40 @@
 import React from "react";
 
 export default class Preview extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       preview: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.clearInput = this.clearInput.bind(this)
+
+  }
+
+  componentDidCatch(){
+    this.setState({
+      preview: this.state.preview
+    })
   }
 
   handleChange(event){
+
     this.setState({
       preview: event.target.value
     })
   }
 
   handleSubmit(event){
+    console.log('A name was submitted: ' + this.state.preview);
+
     event.preventDefault()
-    this.setState({
-      preview: ""
-    })
+    // console.log("event", event)
+
+  }
+
+  clearInput(){
+    document.getElementById('myInput').value = ''
   }
 
   render(){
@@ -38,8 +52,8 @@ export default class Preview extends React.Component {
 
 
       <form onSubmit={this.handleSubmit}>
-        <input type="text" name="preview" placeholder="Your text here." value={this.state.preview} onChange={this.handleChange}/>
-        <button type="submit">SUBMIT</button>
+        <input id="myInput" type="text" value={this.state.preview} onChange={this.handleChange}/>
+        <button onClick ={this.clearInput}type="submit">SUBMIT</button>
       </form>
       </div>
     )
