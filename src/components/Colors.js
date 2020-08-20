@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { AVAILABLE_COLORS, pickColor } from "../redux/colors";
 import "./App.css";
+// import Checkbox from './CheckBox'
+// import {createEditor} from "./CodeMirror"
 
 export class Colors extends React.Component {
   constructor(props){
@@ -17,6 +19,8 @@ export class Colors extends React.Component {
     this.props.pickColor(evt)
     document.getElementById('preview-text').style.color = evt.color;
     const codePreview = document.getElementById('codepreview')
+
+
     codePreview.innerHTML = `{ color: ${evt.color}; }`
   }
 
@@ -29,6 +33,19 @@ export class Colors extends React.Component {
     return (
       <div>
         <h6>COLOR OPTIONS</h6>
+        {/* <Checkbox /> */}
+        {/* <div className="checkboxes">
+
+        <label className="checkbox-container">Text
+  <input type="radio"/>
+  <span class="checkmark"></span>
+</label>
+
+<label class="checkbox-container">Background Color
+  <input type="radio"/>
+  <span class="checkmark"></span>
+</label>
+        </div> */}
 
         <div className="colorPalette">
           {colors.map((color, ind) => {
@@ -40,12 +57,13 @@ export class Colors extends React.Component {
             );
           })}
         </div>
-          <h6>CODE</h6>
+
+          <h6>CSS CODE</h6>
         <div id="codepreview" >
         {codeSnippet} black;{` }`}
-
-
         </div>
+
+        <createEditor />
 
       </div>
     );
