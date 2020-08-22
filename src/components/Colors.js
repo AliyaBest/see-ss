@@ -50,7 +50,7 @@ export class Colors extends React.Component {
       <div>
         <h6>COLOR OPTIONS</h6>
 
-        <form>
+        <form id = "textOrBackground">
           <div className = "radio">
             <label>
               <input
