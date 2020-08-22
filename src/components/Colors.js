@@ -28,10 +28,15 @@ export class Colors extends React.Component {
 
   chooseColor(evt) {
     this.props.pickColor(evt)
-    document.getElementById('preview-text').style.color = evt.color;
     const codePreview = document.getElementById('codepreview')
 
+    if(this.state.selectedOption==='text'){
+      document.getElementById('preview-text').style.color = evt.color;
+    }
 
+    else if (this.state.selectedOption==='background'){
+      document.getElementById('preview-text').style.backgroundColor = evt.color;
+    }
     codePreview.innerHTML = `{ color: ${evt.color}; }`
   }
 
