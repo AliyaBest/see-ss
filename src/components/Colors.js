@@ -2,25 +2,41 @@ import React from "react";
 import { connect } from "react-redux";
 import { AVAILABLE_COLORS, pickColor } from "../redux/colors";
 import "./App.css";
-// import Checkbox from './CheckBox'
-// import {createEditor} from "./CodeMirror"
+
 
 export class Colors extends React.Component {
   constructor(props){
     super(props)
 
+    this.state ={
+      selectedOption: "text"
+    }
+
+    this.handleOptionChange = this.handleOptionChange.bind(this)
     this.chooseColor = this.chooseColor.bind(this)
   }
+
   componentDidMount(){
     this.props.pickColor()
   }
 
+  handleOptionChange(evt){
+    this.setState({
+      selectedOption: evt.target.value
+    })
+  }
+
   chooseColor(evt) {
     this.props.pickColor(evt)
-    document.getElementById('preview-text').style.color = evt.color;
     const codePreview = document.getElementById('codepreview')
 
+    if(this.state.selectedOption==='text'){
+      document.getElementById('preview-text').style.color = evt.color;
+    }
 
+    else if (this.state.selectedOption==='background'){
+      document.getElementById('preview-text').style.backgroundColor = evt.color;
+    }
     codePreview.innerHTML = `{ color: ${evt.color}; }`
   }
 
@@ -33,19 +49,31 @@ export class Colors extends React.Component {
     return (
       <div>
         <h6>COLOR OPTIONS</h6>
-        {/* <Checkbox /> */}
-        {/* <div className="checkboxes">
 
-        <label className="checkbox-container">Text
-  <input type="radio"/>
-  <span class="checkmark"></span>
-</label>
+        <form id = "textOrBackground">
+          <div className = "radio">
+            <label>
+              <input
+                type ="radio"
+                value = "text"
+                checked={this.state.selectedOption === "text"}
+                onChange={this.handleOptionChange}/>
+                Text Color
+            </label>
+          </div>
 
-<label class="checkbox-container">Background Color
-  <input type="radio"/>
-  <span class="checkmark"></span>
-</label>
-        </div> */}
+          <div className = "radio">
+            <label>
+              <input
+                type ="radio"
+                value = "background"
+                checked={this.state.selectedOption === "background"}
+                onChange={this.handleOptionChange}/>
+                Background Color
+            </label>
+          </div>
+        </form>
+
 
         <div className="colorPalette">
           {colors.map((color, ind) => {
@@ -63,7 +91,6 @@ export class Colors extends React.Component {
         {codeSnippet} black;{` }`}
         </div>
 
-        <createEditor />
 
       </div>
     );

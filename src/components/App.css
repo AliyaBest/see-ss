@@ -193,70 +193,13 @@ button {
   margin: 0px 0px 0px 50px;
 }
 
-/* checkbox CSS*/
-.checkbox-container {
-  display: inline-flex;
-  position: relative;
-  padding-left: 45px;
-  margin-bottom: 12px;
-  margin-left: 35px;
-  cursor: pointer;
+#textOrBackground{
+  display: flex;
+  flex-direction: row;
+  padding: 10px 50px 10px 50px;
+  justify-content: space-around;
+}
+
+.radio{
   font-size: 16px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.checkbox-container input {
-  /* position: absolute; */
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  margin-left: 15px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1.25em;
-  width: 1.25em;
-  background-color: #eee;
-  border-radius: 50%;
-}
-
-/* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ .checkmark {
-  background-color: #2196f3;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.checkbox-container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.checkbox-container .checkmark:after {
-  top: 6px;
-  left: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
 }
