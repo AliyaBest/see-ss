@@ -29,8 +29,6 @@ export default class Preview extends React.Component {
     console.log('A name was submitted: ' + this.state.preview);
 
     event.preventDefault()
-    // console.log("event", event)
-
   }
 
   clearInput(){
