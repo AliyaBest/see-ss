@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { AVAILABLE_COLORS, pickColor } from "../redux/colors";
 import "./App.css";
+import CodePreview from './CodePreview'
+
 
 export class Colors extends React.Component {
   constructor(props) {
@@ -92,13 +94,8 @@ export class Colors extends React.Component {
           })}
         </div>
 
-        <h6>CSS CODE</h6>
-        <div id="codepreview">
-          <ul>
-            <li>{`{ color: ${this.state.color};`}</li>
-            <li>{`background: ${this.state.background}; }`}</li>
-          </ul>
-        </div>
+        <CodePreview color={this.state.color} background={this.state.background}/>
+
       </div>
     );
   }
